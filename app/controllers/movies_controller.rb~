@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
   end
+  
   def show
     id = params[:id]#retrieve movie ID from URI route
     @movie = Movie.find(id)#look up movie by unique ID
@@ -12,6 +13,11 @@ class MoviesController < ApplicationController
   
   def new
     # default: render 'new' template
+  end
+  
+  def create
+    @movie = Movie.create!(params[:movie])
+    redirect_to movies_path
   end
 
 end
