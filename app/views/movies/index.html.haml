@@ -17,4 +17,12 @@
           %td= link_to "More about #{movie.title}", movie_path(movie)
           
 = link_to 'Add new movie', new_movie_path
+
+%h1 Search TMDb for a movie
+
+= form_tag :action => 'serch_tmdb' do
+
+  %label{:for => 'serch_terms'} Serch Terms
+  = text_field_tag 'serch_terms'
+  = submit_tag 'Serch TMDb'
           
