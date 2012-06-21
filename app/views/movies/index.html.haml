@@ -17,12 +17,13 @@
           %td= link_to "More about #{movie.title}", movie_path(movie)
           
 = link_to 'Add new movie', new_movie_path
+-# add to end of app/views/movies/index.html.haml:
 
 %h1 Search TMDb for a movie
 
-= form_tag :action => 'serch_tmdb' do
+= form_tag :action => 'search_tmdb' do
 
-  %label{:for => 'serch_terms'} Serch Terms
-  = text_field_tag 'serch_terms'
-  = submit_tag 'Serch TMDb'
-          
+  %label{:for => 'search_terms'} Search Terms
+  = text_field_tag 'search_terms'
+  = submit_tag 'Search TMDb'
+
