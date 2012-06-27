@@ -15,6 +15,10 @@ describe MoviesController do
       post :search_tmdb, {:search_terms => 'hardware'}
       response.should render_template('search_tmdb')
     end
-    it 'should make the TMDb search results available to that template'
+    it 'should make the TMDb search results available to that template' do
+      Movie.stub(:find_in_tmdb).and_return(@fake_results)
+      post :search_tmdb, {:search_terms => 'hardware'}
+      assigns(:movies).should == @fake_results
+    end
   end
 end
