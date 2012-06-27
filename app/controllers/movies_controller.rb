@@ -40,6 +40,7 @@ class MoviesController < ApplicationController
   end 
   
   def search_tmdb
+    @movies = Movie.find_in_tmdb(params[:seardh_terms])
   end
 
 end
